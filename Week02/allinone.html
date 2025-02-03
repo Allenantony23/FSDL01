@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2add33, #5bf0c3);
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #070505;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: rgb(1, 20, 6);
+        }
+
+        tr:nth-child(even) {
+            background-color: #acc49b;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        a:hover {
+            color: rgb(0, 5, 8);
+        }
+
+        p::before {
+            content: "Note: ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to CSS3</h1>
+    <p>This is a simple example demonstrating various CSS3 features, including color, background, fonts, tables, and pseudo-elements.</p>
+
+    <h2>Unordered List</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <h2>Table Example</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Allen</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Ashley</td>
+            <td>20</td>
+        </tr>
+    </table>
+
+    <h2>Links</h2>
+    <a href="https://example.com">Go to example.com</a>
+</body>
+</html>
