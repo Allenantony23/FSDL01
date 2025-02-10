@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polling System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .option {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Polling System</h2>
+        <p>Which is your favorite programming language?</p>
+        <div class="option"><input type="radio" name="vote" value="JavaScript"> JavaScript</div>
+        <div class="option"><input type="radio" name="vote" value="Python"> Python</div>
+        <div class="option"><input type="radio" name="vote" value="Java"> Java</div>
+        <div class="option"><input type="radio" name="vote" value="C++"> C++</div>
+        <button onclick="submitVote()">Vote</button>
+        <h3>Results</h3>
+        <ul id="results">
+            <li>JavaScript: <span id="js-count">0</span> votes</li>
+            <li>Python: <span id="python-count">0</span> votes</li>
+            <li>Java: <span id="java-count">0</span> votes</li>
+            <li>C++: <span id="cpp-count">0</span> votes</li>
+        </ul>
+    </div>
+
+    <script>
+        let votes = { "JavaScript": 0, "Python": 0, "Java": 0, "C++": 0 };
+
+        function submitVote() {
+            let selectedOption = document.querySelector('input[name="vote"]:checked');
+            if (!selectedOption) {
+                alert("Please select an option before voting.");
+                return;
+            }
+            votes[selectedOption.value]++;
+            updateResults();
+        }
+
+        function updateResults() {
+            document.getElementById("js-count").innerText = votes["JavaScript"];
+            document.getElementById("python-count").innerText = votes["Python"];
+            document.getElementById("java-count").innerText = votes["Java"];
+            document.getElementById("cpp-count").innerText = votes["C++"];
+        }
+    </script>
+</body>
+</html>
