@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirational Quote Generator</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            padding: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .quote {
+            font-size: 20px;
+            margin-top: 25px;
+            font-style: italic;
+            color: #333;
+        }
+        .author {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inspirational Quote Generator</h2>
+        <p class="quote" id="quote">Press the button to receive wisdom!</p>
+        <p class="author" id="author"></p>
+        <button onclick="generateQuote()">Get Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "It always seems impossible until it’s done.", author: "Nelson Mandela" },
+            { text: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt" },
+            { text: "Believe you can and you’re halfway there.", author: "Theodore Roosevelt" },
+            { text: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" }
+        ];
+
+        function generateQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = `"${quotes[randomIndex].text}"`;
+            document.getElementById("author").innerText = `- ${quotes[randomIndex].author}`;
+        }
+    </script>
+</body>
+</html>
+
