@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #timer {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Countdown Timer</h2>
+        <input type="number" id="timeInput" placeholder="Enter seconds" min="1">
+        <button onclick="startCountdown()">Start Countdown</button>
+        <p id="timer"></p>
+    </div>
+
+    <script>
+        let countdown;
+
+        function startCountdown() {
+            clearInterval(countdown);
+            let time = parseInt(document.getElementById("timeInput").value);
+            if (isNaN(time) || time <= 0) {
+                alert("Please enter a valid number of seconds.");
+                return;
+            }
+            
+            let timerDisplay = document.getElementById("timer");
+            timerDisplay.innerText = time;
+            
+            countdown = setInterval(() => {
+                time--;
+                timerDisplay.innerText = time;
+                if (time <= 0) {
+                    clearInterval(countdown);
+                    timerDisplay.innerText = "Time's up!";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
