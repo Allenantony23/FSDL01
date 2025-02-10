@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .strength {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .strength-bar {
+            height: 10px;
+            width: 100%;
+            background-color: #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            position: relative;
+        }
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Strength Checker</h2>
+        <input type="password" id="password" placeholder="Enter password" oninput="checkStrength()">
+        <p class="strength" id="strength"></p>
+        <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkStrength() {
+            let password = document.getElementById("password").value;
+            let strengthText = document.getElementById("strength");
+            let strengthFill = document.getElementById("strengthFill");
+            let strength = "Weak";
+            let strengthPercentage = 20;
+            let regexWeak = /[a-z]/;
+            let regexMedium = /[a-zA-Z0-9]/;
+            let regexStrong = /[a-zA-Z0-9!@#$%^&*()_+]/;
+
+            if (password.length > 8 && regexMedium.test(password)) {
+                strength = "Medium";
+                strengthPercentage = 60;
+            }
+            if (password.length > 12 && regexStrong.test(password)) {
+                strength = "Strong";
+                strengthPercentage = 100;
+            }
+            
+            strengthText.innerText = "Strength: " + strength;
+            strengthText.style.color = strength === "Weak" ? "red" : strength === "Medium" ? "orange" : "green";
+            strengthFill.style.width = strengthPercentage + "%";
+            strengthFill.style.backgroundColor = strength === "Weak" ? "red" : strength === "Medium" ? "orange" : "green";
+        }
+    </script>
+</body>
+</html>
+
