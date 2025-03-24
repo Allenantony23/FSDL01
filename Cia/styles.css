@@ -1,43 +1,50 @@
-body {
+/* Reset some default styles */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Header Styling */
 header {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green */
     color: white;
     padding: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
+/* Navigation Bar Styling */
 nav {
-    background-color: #333;
-    padding: 15px;
+    background-color: #333; /* Dark Gray */
+    overflow: hidden;
 }
 
 nav a {
     color: white;
-    text-decoration: none;
     padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 nav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #ddd; /* Light Gray on hover */
 }
 
+/* Content Section Styling */
 .content {
-    background-color: #f1f1f1;
+    background-color: #f4f4f4; /* Light Gray */
     padding: 20px;
-    height: 400px; /* Adjust as needed */
+    font-size: 18px;
 }
 
+/* Footer Styling */
 footer {
-    background-color: #333;
+    background-color: #222; /* Darker Gray */
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: fixed;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
 }
