@@ -1,0 +1,50 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+header {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Navigation Bar Styling */
+nav {
+    background-color: #333; /* Dark Gray */
+    overflow: hidden;
+}
+
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #ddd; /* Light Gray on hover */
+}
+
+/* Content Section Styling */
+.content {
+    background-color: #f4f4f4; /* Light Gray */
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #222; /* Darker Gray */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

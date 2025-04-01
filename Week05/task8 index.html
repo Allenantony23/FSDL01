@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records with AngularJS</title>
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Link to app.js -->
+    <script src="task8 app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body ng-app="studentApp">
+    <!-- Main Controller -->
+    <div ng-controller="StudentController">
+        <h1>Student Records</h1>
+
+        <!-- Form for Adding Student -->
+        <form name="studentForm" ng-submit="addStudent()" novalidate>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" ng-model="student.name" required>
+            <span ng-show="studentForm.name.$dirty && studentForm.name.$error.required" style="color: red;">Name is required</span><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" ng-model="student.age" required>
+            <span ng-show="studentForm.age.$dirty && studentForm.age.$error.required" style="color: red;">Age is required</span><br><br>
+
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" ng-model="student.grade" required>
+            <span ng-show="studentForm.grade.$dirty && studentForm.grade.$error.required" style="color: red;">Grade is required</span><br><br>
+
+            <button type="submit" ng-disabled="studentForm.$invalid">Add Student</button>
+        </form>
+
+        <!-- Table for Displaying Student Records -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in students">
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.grade }}</td>
+                    <td>
+                        <button ng-click="removeStudent($index)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

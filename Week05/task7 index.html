@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World with AngularJS</title>
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Link to app.js -->
+    <script src="task7 app.js"></script>
+</head>
+<body ng-app="helloApp">
+    <!-- Main Controller -->
+    <div ng-controller="HelloController">
+        <h1>{{ greeting }}</h1> <!-- AngularJS Expression -->
+        
+        <!-- Using ng-model -->
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" ng-model="name">
+        
+        <!-- Display greeting dynamically -->
+        <h2>Hello, {{ name }}!</h2>
+    </div>
+</body>
+</html>
