@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Demo</title>
+    <style>
+        body{font-family:Arial;max-width:600px;margin:0 auto;padding:20px;background:#f8f9fa}
+        .card{background:white;padding:15px;border-radius:8px;box-shadow:0 2px 5px #0001;margin:15px 0}
+        button{background:#4361ee;color:white;border:0;padding:8px 15px;border-radius:4px;cursor:pointer}
+        .output{margin:10px 0;padding:10px;background:#f1f3f9;border-radius:4px}
+        .highlight{color:#f72585;font-weight:bold}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>JS Essentials</h1>
+        <p>Core concepts demo</p>
+    </div>
+
+    <div class="card">
+        <h2>Error Handling</h2>
+        <button id="errorBtn">Test Errors</button>
+        <div class="output" id="errorOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>Arrays</h2>
+        <button id="arrayBtn">Array Tricks</button>
+        <div class="output" id="arrayOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>Dates</h2>
+        <button id="dateBtn">Show Date</button>
+        <div class="output" id="dateOutput"></div>
+    </div>
+
+    <script>
+        // Error Handling
+        document.getElementById('errorBtn').onclick = () => {
+            try {
+                throw new Error("Demo error");
+                document.getElementById('errorOutput').textContent = "No error";
+            } catch(e) {
+                document.getElementById('errorOutput').innerHTML = 
+                    `<span class="highlight">Error:</span> ${e.message}`;
+            }
+        };
+
+        // Arrays
+        document.getElementById('arrayBtn').onclick = () => {
+            const arr = ['Apple','Banana','Cherry'];
+            document.getElementById('arrayOutput').innerHTML = `
+                Original: ${arr}<br>
+                Reversed: ${[...arr].reverse()}<br>
+                Uppercase: ${arr.map(i=>i.toUpperCase())}
+            `;
+        };
+
+        // Dates
+        document.getElementById('dateBtn').onclick = () => {
+            const d = new Date();
+            document.getElementById('dateOutput').innerHTML = `
+                Date: <span class="highlight">${d.toDateString()}</span><br>
+                Time: ${d.toLocaleTimeString()}
+            `;
+        };
+    </script>
+</body>
+</html>
