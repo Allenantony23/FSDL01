@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+    <title>Simple Student Records</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="StudentController as ctrl">
+    <div class="container">
+        <h1>Student Records</h1>
+        
+        <!-- Add/Edit Student Form -->
+        <div class="form-container">
+            <h2>{{ ctrl.isEditing ? 'Edit Student' : 'Add New Student' }}</h2>
+            <form ng-submit="ctrl.submitStudent()">
+                <input type="text" ng-model="ctrl.currentStudent.name" placeholder="Name" required>
+                <input type="number" ng-model="ctrl.currentStudent.age" placeholder="Age" min="16" required>
+                <input type="text" ng-model="ctrl.currentStudent.grade" placeholder="Grade" required>
+                <button type="submit">{{ ctrl.isEditing ? 'Update' : 'Add' }}</button>
+                <button type="button" ng-click="ctrl.resetForm()" ng-if="ctrl.isEditing">Cancel</button>
+            </form>
+        </div>
+        
+        <!-- Students List -->
+        <div class="student-list">
+            <h2>Student List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Grade</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in ctrl.students">
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.grade }}</td>
+                        <td>
+                            <button ng-click="ctrl.editStudent(student)">Edit</button>
+                            <button ng-click="ctrl.deleteStudent(student)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
