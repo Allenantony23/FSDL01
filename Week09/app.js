@@ -4,9 +4,9 @@ angular.module('studentApp', [])
     
     // Sample initial data
     ctrl.students = [
-        { name: 'Allen Antony', age: 19, grade: 'A' },
-        { name: 'Amal Benny', age: 19, grade: 'B' },
-        { name: 'Aditya Angaj', age: 19, grade: 'A-' }
+        { name: 'Allen', age: 19, grade: 'A' },
+        { name: 'Eric', age: 20, grade: 'B+' },
+        { name: 'Ashley', age: 19, grade: 'A-' }
     ];
     
     // Initialize current student object
